@@ -5,27 +5,42 @@ import PropTypes from 'prop-types';
 const Board=({xIsNext,square,handlePlay})=>{
 
     function handleClick(i){
+
         if(square[i] || calculateWinner(square)){
             return;
         }
+
         const nextSquares=square.slice();
+
         if(xIsNext){
+
         nextSquares[i]="X";
+
         }else{
+
             nextSquares[i]="O";
+
         }
-        handlePlay(nextSquares)
+
+        handlePlay(nextSquares);
     }
 
     const winner =calculateWinner(square);
+
     let status;
+
     if(winner){
+
         status='Winner: '+winner;
+
     }else{
+
         status = 'Next player: '+(xIsNext ? 'X' : 'O');
+
     }
 
     return(
+
         <Fragment>
         <div className="status"><span>{status}</span></div>
         <div className="board">
@@ -46,6 +61,7 @@ const Board=({xIsNext,square,handlePlay})=>{
             </div>
             </div>
         </Fragment>
+
     )
 }
 Board.propTypes={
@@ -57,6 +73,7 @@ Board.propTypes={
 export default Board;
 
 function calculateWinner(squares){
+
     const lines=[
     [0, 1, 2],
     [3, 4, 5],
@@ -66,7 +83,8 @@ function calculateWinner(squares){
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
-    ]
+    ];
+
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {

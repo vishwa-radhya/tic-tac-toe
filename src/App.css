@@ -32,7 +32,6 @@
 }
 
 .game{
-    /* border: 1px solid white; */
     position: relative;
     top: 15vh;
     width: min(350px,85vw);
