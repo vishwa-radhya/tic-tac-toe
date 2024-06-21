@@ -27,7 +27,7 @@ const Board=({xIsNext,square,handlePlay})=>{
 
     return(
         <Fragment>
-        <div className="status">{status}</div>
+        <div className="status"><span>{status}</span></div>
         <div className="board">
             <div className="board-row">
                 <Square value={square[0]} onSquareClick={()=>handleClick(0)} />
